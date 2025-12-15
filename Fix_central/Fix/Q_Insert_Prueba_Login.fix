@@ -1,0 +1,62 @@
+/*****************************************************/
+-- NOMBRE:Q_Insert_Prueba_Login.fix
+-- FECHA: 01 Dic 2025
+-------------------------------------------------------
+-- DESCRIPCION CONSULTA:
+-- Inserta los registro de pruebas para el login y area de usuario
+/*****************************************************/
+use inventario
+go
+-----------------------------------------------------------------------------------------------------------
+IF NOT exists(select 1 from area where nombre  = 'ADM')
+Begin
+    insert into area(nombre)values('ADM')
+END
+IF NOT exists(select 1 from area where nombre  = 'USER')
+Begin
+    insert into area(nombre)values('USER')
+END
+-----------------------------------------------------------------------------------------------------------
+IF NOT exists(select 1 from sub_area where nombre  = 'TIC')
+Begin
+    insert into sub_area (cod_area,nombre)VALUES(1,'TIC')
+END
+IF NOT exists(select 1 from sub_area where nombre  = 'CONTABILIDAD')
+Begin
+    insert into sub_area (cod_area,nombre)VALUES(2,'CONTABILIDAD')
+END
+IF NOT exists(select 1 from sub_area where nombre  = 'RRHH')
+Begin
+    insert into sub_area (cod_area,nombre)VALUES(2,'RRHH')
+END
+-----------------------------------------------------------------------------------------------------------
+IF NOT exists(select 1 from usuario where usuario  = 'rvergara')
+Begin
+    insert into usuario(cod_subarea,num_empleado,nombre,apellido,usuario,contrasena,estado,correo)
+    values (1,139,'ranses','vergara','rvergara','$2a$12$SKAIXu89.v/BaCAsvH.UKO5f79HOLpSuR1IGqkBzWmnJPdcKQAn2O','A','camanogust92@gmail.com') --Contrasenha es 1234
+END
+GO 
+
+IF NOT exists(select 1 from usuario where usuario  = 'gcamano')
+Begin
+    insert into usuario(cod_subarea,num_empleado,nombre,apellido,usuario,contrasena,estado,correo)
+    values (1,459,'Gustavo','Camano','gcamano','$2a$12$SKAIXu89.v/BaCAsvH.UKO5f79HOLpSuR1IGqkBzWmnJPdcKQAn2O','A','gust4v03@gmail.com') --Contrasenha es 1234
+END
+GO
+
+IF NOT exists(select 1 from usuario where usuario  = 'atejada')
+Begin
+    insert into usuario(cod_subarea,num_empleado,nombre,apellido,usuario,contrasena,estado,correo)
+    values (2,100,'Arlene','Tejada','atejada','$2a$12$SKAIXu89.v/BaCAsvH.UKO5f79HOLpSuR1IGqkBzWmnJPdcKQAn2O','A','camanogust92@gmail.com') --Contrasenha es 1234
+END
+GO
+
+IF NOT exists(select 1 from usuario where usuario  = 'icastillo')
+Begin
+    insert into usuario(cod_subarea,num_empleado,nombre,apellido,usuario,contrasena,estado,correo)
+    values (2,101,'Isaias','Castillo','icastillo','$2a$12$SKAIXu89.v/BaCAsvH.UKO5f79HOLpSuR1IGqkBzWmnJPdcKQAn2O','A','gust4v03@gmail.com') --Contrasenha es 1234
+END
+GO
+-----------------------------------------------------------------------------------------------------------
+Go
+
