@@ -1,0 +1,31 @@
+/*****************************************************/
+-- NOMBRE:Q_Update_Prueba_AsigancionEquipo.fix
+-- FECHA: 01 Dic 2025
+-------------------------------------------------------
+-- DESCRIPCION CONSULTA:
+-- Inserta los registro de pruebas para el login y area de usuario
+/*****************************************************/
+use inventario
+go
+-----------------------------------------------------------------------------------------------------------
+select * from  [inventario].[dbo].[equipos] where cod_equipo = 1
+update [inventario].[dbo].[equipos]
+set ultimo_mantenimiento = '2023/01/31' --YYYY-MM-DD
+where cod_equipo = 1
+select * from  [inventario].[dbo].[equipos] where cod_equipo = 1
+
+-----------------------------------------------------------------------------------------------------------
+select * from  [inventario].[dbo].[equipos] where cod_equipo = 3
+update [inventario].[dbo].[equipos]
+set ultimo_mantenimiento = '2022/01/31' --YYYY-MM-DD
+where cod_equipo = 3
+select * from  [inventario].[dbo].[equipos] where cod_equipo = 3
+
+-----------------------------------------------------------------------------------------------------------
+select * from  [inventario].[dbo].[equipos] where cod_equipo = 4
+update [inventario].[dbo].[equipos]
+set ultimo_mantenimiento = '2021/01/31' --YYYY-MM-DD
+where cod_equipo = 4
+select * from  [inventario].[dbo].[equipos] where cod_equipo = 4
+
+Go
